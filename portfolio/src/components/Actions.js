@@ -8,16 +8,39 @@ import Action from './Action.js'
 class Projects extends Component {
 
   render() {
-      return ( this.props.actions
+    console.log('Actions:', this.props.match.params);
+      return (
+        this.props.actions
         ?
-        <React.Fragment>
+        this.props.match.params.id
+        ?
+        (
+          console.log(this.props.match.params.id),
+          <React.Fragment>
           <h2> Actions </h2>
-          {this.props.actions.map(action => (
-            <Action data={action} />
+          {this.props.actions.filter(action => (
+            action.project_id == this.props.match.params.id
+
+          ))
+          .map(filtered => (
+            // <Action data={filtered} />
+            <h2>{filtered.description}</h2>
           ))}
-      </React.Fragment>
+        </React.Fragment>)
+          :
+          <React.Fragment>
+            <h2> NO PARAMS </h2>
+            {this.props.actions.map(action => (
+              <React.Fragment>
+              <Action data={action} />
+              <h2> {action} </h2>
+              </React.Fragment>
+            ))}
+          </React.Fragment>
       :
-        <h2> Loading... </h2>
+      <h2> Loading... </h2>
+
+
     );
   }
 }

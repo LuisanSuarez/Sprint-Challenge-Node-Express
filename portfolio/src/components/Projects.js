@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 import Project from './Project.js'
-// import Action from './Action.js'
 
 
 

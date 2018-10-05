@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Action from './Action.js';
+import { Route, Link } from 'react-router-dom'
 
 class Project extends Component {
 
@@ -7,14 +8,7 @@ class Project extends Component {
     console.log('Project Props:', this.props);
     return (
       <React.Fragment>
-        <h1> Project: {this.props.data.name} </h1>
-        <p> {this.props.data.description}</p>
-        {this.props.actions.filter(action => (
-          action.project_id === this.props.data.id
-          )).map(project_action => (
-            <Action data={project_action} />
-          ))
-      }
+        <Link to={`/projects/${this.props.data.id}`}> <h1> Project: {this.props.data.name} </h1> </Link>
       </React.Fragment>
     );
   }
