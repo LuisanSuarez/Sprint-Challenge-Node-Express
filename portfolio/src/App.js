@@ -65,7 +65,6 @@ class App extends Component {
             {...props}
             actions={this.state.actions}
           />
-        </React.Fragment>
         }/>
         <Route exact path='/actions' render={props =>
           <Actions

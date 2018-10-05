@@ -8,7 +8,6 @@ import Action from './Action.js'
 class Projects extends Component {
 
   render() {
-    console.log('Actions:', this.props.match.params);
       return (
         this.props.actions
         ?
@@ -20,11 +19,9 @@ class Projects extends Component {
           <h2> Actions </h2>
           {this.props.actions.filter(action => (
             action.project_id == this.props.match.params.id
-
           ))
           .map(filtered => (
-            // <Action data={filtered} />
-            <h2>{filtered.description}</h2>
+            <Action data={filtered} />
           ))}
         </React.Fragment>)
           :
